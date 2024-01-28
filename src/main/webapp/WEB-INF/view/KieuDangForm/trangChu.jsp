@@ -17,7 +17,6 @@
     <title>KieuDang</title>
 </head>
 <body class="container">
-<h2>Helo ban</h2>
 <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Thêm KieuDang
 </button>
