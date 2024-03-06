@@ -1,7 +1,8 @@
 package com.example.duantn.Service.impl;
 
-import com.example.duantn.Model.KieuDang;
-import com.example.duantn.Repository.KieuDangRepository;
+import com.example.duantn.Model.ChatLieu;
+import com.example.duantn.Model.KichCo;
+import com.example.duantn.Repository.ChatLieuRepository;
 import com.example.duantn.Service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,23 +13,23 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class KieuDangServiceImpl implements BaseService<KieuDang> {
+public class ChatLieuServiceImpl implements BaseService<ChatLieu> {
     @Autowired
-    KieuDangRepository repo_kieuDang;
+    ChatLieuRepository repo_chatLieu;
 
 
     @Override
-    public List<KieuDang> layDanhSach() {
-        return repo_kieuDang.getAll();
+    public List<ChatLieu> layDanhSach() {
+        return repo_chatLieu.getAll();
     }
 
     @Override
-    public Page<KieuDang> layDanhSach(Pageable pageable) {
+    public Page<ChatLieu> layDanhSach(Pageable pageable) {
         return null;
     }
 
     @Override
-    public Page<KieuDang> layDanhSach(String textSearch, Pageable pageable) {
+    public Page<ChatLieu> layDanhSach(String textSearch, Pageable pageable) {
         return null;
     }
 
@@ -38,22 +39,22 @@ public class KieuDangServiceImpl implements BaseService<KieuDang> {
     }
 
     @Override
-    public void themMoi(KieuDang entity) {
+    public void themMoi(ChatLieu entity) {
 
     }
 
     @Override
-    public KieuDang capNhat(KieuDang entity) {
+    public ChatLieu capNhat(ChatLieu entity) {
         return null;
     }
 
     @Override
-    public KieuDang chiTietTheoId(UUID id) {
+    public ChatLieu chiTietTheoId(UUID id) {
         return null;
     }
 
     @Override
-    public List<KieuDang> layDanhSachTheoTen(String ten) {
+    public List<ChatLieu> layDanhSachTheoTen(String ten) {
         return null;
     }
 }

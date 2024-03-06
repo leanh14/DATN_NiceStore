@@ -8,29 +8,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "PhieuGiamGia")
+import java.sql.Date;
+
+@Table(name = "DotKhuyenMai")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class PhieuGiamGia extends BaseModel{
+public class DotKhuyenMai extends BaseModel{
 
     @Column(name = "Ma")
     private String ma;
 
-    @Column(name = "TenPhieu")
-    private String ten;
+    @Column(name = "tenDotKhuyenMai")
+    private String tenDotKhuyenMai;
 
     @Column(name = "GiaTriGiam")
     private Double giaTriGiam;
 
-    @Column(name = "HinhThucGiam")
-    private String HinhThucGiam;
+    @Column(name = "NgayBatDau")
+    private Date ngayBatDau;
 
-    @Column(name = "DieuKienGiam")
-    private String DieuKienGiam;
-
-    @Column(name = "GiaTienXetDieuKien")
-    private Double giaTienXetDieuKien;
+    @Column(name = "NgayKetThuc")
+    private Date ngayKetThuc;
 
 }

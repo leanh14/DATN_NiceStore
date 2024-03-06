@@ -8,13 +8,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "KieuDang")
+@Table(name = "MauSac")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class KieuDang extends BaseModel {
-
+public class MauSac extends BaseModel {
     @Column(name = "Ma")
     private String ma;
 
@@ -23,5 +22,6 @@ public class KieuDang extends BaseModel {
 
     @Column(name = "MoTa")
     private String moTa;
+
 
 }

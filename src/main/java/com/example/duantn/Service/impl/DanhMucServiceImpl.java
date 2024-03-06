@@ -1,34 +1,34 @@
 package com.example.duantn.Service.impl;
 
-import com.example.duantn.Model.KieuDang;
-import com.example.duantn.Repository.KieuDangRepository;
+import com.example.duantn.Model.DanhMuc;
+import com.example.duantn.Repository.DanhMucRepository;
 import com.example.duantn.Service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
-public class KieuDangServiceImpl implements BaseService<KieuDang> {
+public class DanhMucServiceImpl implements BaseService<DanhMuc> {
     @Autowired
-    KieuDangRepository repo_kieuDang;
-
+    DanhMucRepository repo_danhMuc;
 
     @Override
-    public List<KieuDang> layDanhSach() {
-        return repo_kieuDang.getAll();
+    public List<DanhMuc> layDanhSach() {
+        return repo_danhMuc.getAll();
     }
 
     @Override
-    public Page<KieuDang> layDanhSach(Pageable pageable) {
+    public Page<DanhMuc> layDanhSach(Pageable pageable) {
         return null;
     }
 
     @Override
-    public Page<KieuDang> layDanhSach(String textSearch, Pageable pageable) {
+    public Page<DanhMuc> layDanhSach(String textSearch, Pageable pageable) {
         return null;
     }
 
@@ -38,22 +38,22 @@ public class KieuDangServiceImpl implements BaseService<KieuDang> {
     }
 
     @Override
-    public void themMoi(KieuDang entity) {
+    public void themMoi(DanhMuc entity) {
 
     }
 
     @Override
-    public KieuDang capNhat(KieuDang entity) {
+    public DanhMuc capNhat(DanhMuc entity) {
         return null;
     }
 
     @Override
-    public KieuDang chiTietTheoId(UUID id) {
+    public DanhMuc chiTietTheoId(UUID id) {
         return null;
     }
 
     @Override
-    public List<KieuDang> layDanhSachTheoTen(String ten) {
+    public List<DanhMuc> layDanhSachTheoTen(String ten) {
         return null;
     }
 }
