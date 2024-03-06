@@ -30,14 +30,14 @@ public class PhieuGiamGiaController {
         model.addAttribute("phieuGiam",new PhieuGiamGia());
         model.addAttribute("listPG",phieuGiamGiaRepository.findAll(pageable).getContent());
         model.addAttribute("totalPage",phieuGiamGiaRepository.findAll(pageable).getTotalElements());
-        return "/PhieuGiamGiaForm/trangChu";
+        return "/admin/PhieuGiamGiaForm/trangChu";
     }
     //detail
     @GetMapping("/detail/{id}")
     public String detail(@PathVariable String id,Model model){
         PhieuGiamGia phieuGiamGia = phieuGiamGiaService.detail(UUID.fromString(id));
         model.addAttribute("phieuGiam",phieuGiamGia);
-        return "/PhieuGiamGiaForm/update";
+        return "/admin/PhieuGiamGiaForm/update";
     }
     //delete
     @GetMapping("/delete/{id}")

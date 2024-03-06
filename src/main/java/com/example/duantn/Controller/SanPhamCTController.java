@@ -38,7 +38,8 @@ public class SanPhamCTController {
         model.addAttribute("totalPage",sanPhamCTRepository.findAll(pageable).getTotalElements());
         model.addAttribute("listKD",kieuDangService.getAll());
         model.addAttribute("listLG",lotGiayService.getAll());
-        return "SanPhamCTForm/trangChu";
+        model.addAttribute("pageChoosedNumber",page);
+        return "admin/SanPhamCTForm/trangChus";
     }
     //detail
     @GetMapping("/detail/{id}")
@@ -47,7 +48,7 @@ public class SanPhamCTController {
         model.addAttribute("sanPhamCT",sanPhamCT);
         model.addAttribute("listKD",kieuDangService.getAll());
         model.addAttribute("listLG",lotGiayService.getAll());
-        return "SanPhamCTForm/update";
+        return "admin/SanPhamCTForm/update";
     }
     //delete
     @GetMapping("/delete/{id}")

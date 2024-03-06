@@ -34,7 +34,7 @@ public class HoaDonCTController {
         model.addAttribute("listHDCT",hoaDonCTRepository.findAll(pageable).getContent());
         model.addAttribute("totalPage",hoaDonCTRepository.findAll(pageable).getTotalElements());
         model.addAttribute("listHD",hoaDonService.getAll());
-        return "HoaDonCTForm/trangChu";
+        return "admin/HoaDonCTForm/trangChu";
     }
     //detail
     @GetMapping("/detail/{id}")
@@ -42,7 +42,7 @@ public class HoaDonCTController {
         HoaDonCT hoaDonCT = hoaDonCtService.detail(UUID.fromString(id));
         model.addAttribute("hoaDonCT",hoaDonCT);
         model.addAttribute("listHD",hoaDonService.getAll());
-        return "HoaDonCTForm/update";
+        return "admin/HoaDonCTForm/update";
     }
     //delete
     @GetMapping("/delete/{id}")
