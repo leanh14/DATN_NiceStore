@@ -8,12 +8,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table(name = "KieuDang")
+@Table(name = "DayGiay")
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class KieuDang extends BaseModel {
+public class DayGiay extends BaseModel {
 
     @Column(name = "Ma")
     private String ma;

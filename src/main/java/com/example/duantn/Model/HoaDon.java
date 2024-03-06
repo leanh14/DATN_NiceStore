@@ -1,40 +1,83 @@
 package com.example.duantn.Model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.util.UUID;
 
-@Table(name="HoaDon")
+@Table(name = "HoaDon")
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Data
-public class HoaDon {
+public class HoaDon  {
     @Id
+    @Column(name = "Id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "IdPhieuGiamGia")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "IdKhachHang",referencedColumnName = "Id")
+    private KhachHang khachHang;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "IdPhieuGiamGia",referencedColumnName = "Id")
     private PhieuGiamGia phieuGiamGia;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "IdNhanVien",referencedColumnName = "Id")
+    private NhanVien nhanVien;
+
+    @Column(name = "Ma")
     private String ma;
+
+    @Column(name = "NgayMua")
     private Date ngayMua;
+
+
+    @Column(name = "NgayNhan")
     private Date ngayNhan;
+
+    @Column(name = "NgayGiao")
     private Date ngayGiao;
+
+
+    @Column(name = "NgayThanhToan")
     private Date ngayThanhToan;
-    private Float tongTienThanhToan;
-    private Float tienVanChuyen;
-    private Float tongTienGiamGia;
+
+    @Column(name = "TongTienThanhToan")
+    private Double tongTienThanhToan;
+
+    @Column(name = "TienVanChuyen")
+    private Double tienVanChuyen;
+
+
+    @Column(name = "TongTienGiamGia")
+    private Double tongTienGiamGia;
+
+    @Column(name = "TenKH")
     private String tenKH;
+
+    @Column(name = "DiaChi")
     private String diaChi;
+
+    @Column(name = "SoDT")
     private String soDT;
+
+    @Column(name = "ghiChu")
     private String ghiChu;
-    private  String hinhThucTT;
-    private Integer trangThai;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "HinhThucTT")
+    private String hinhThucTT;
+
+    @Column(name = "TrangThai")
+    private String trangThai;
+
+
 }
