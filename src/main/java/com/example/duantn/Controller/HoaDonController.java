@@ -34,7 +34,7 @@ public class HoaDonController {
         model.addAttribute("listHD",hoaDonRepository.findAll(pageable).getContent());
         model.addAttribute("totalPage",hoaDonRepository.findAll(pageable).getTotalElements());
         model.addAttribute("listPG",phieuGiamGiaService.getAll());
-        return "/HoaDonForm/trangChu";
+        return "/admin/HoaDonForm/trangChu";
     }
     //detail
     @GetMapping("/detail/{id}")
@@ -42,7 +42,7 @@ public class HoaDonController {
         HoaDon hoaDon = hoaDonService.detail(UUID.fromString(id));
         model.addAttribute("hoaDon",hoaDon);
         model.addAttribute("listPG",phieuGiamGiaService.getAll());
-        return "/HoaDonForm/update";
+        return "/admin/HoaDonForm/update";
     }
     //delete
     @GetMapping("/delete/{id}")

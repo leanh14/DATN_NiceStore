@@ -30,14 +30,14 @@ public class KieuDangController {
         model.addAttribute("kieuDang",new KieuDang());
         model.addAttribute("listKD",kieuDangRepository.findAll(pageable).getContent());
         model.addAttribute("totalPage",kieuDangRepository.findAll(pageable).getTotalElements());
-        return"/KieuDangForm/trangChu";
+        return"/admin/KieuDangForm/trangChu";
     }
     //detail
     @GetMapping("/detail/{id}")
     public String detail(@PathVariable String id,Model model){
         KieuDang kieuDang = kieuDangService.detail(UUID.fromString(id));
         model.addAttribute("kieuDang",kieuDang);
-        return "/KieuDangForm/update";
+        return "/admin/KieuDangForm/update";
     }
     //delete
     @GetMapping("/delete/{id}")

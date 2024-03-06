@@ -30,14 +30,14 @@ public class LotGiayController {
         model.addAttribute("lotGiay",new LotGiay());
         model.addAttribute("listLG",lotGiayRepository.findAll(pageable).getContent());
         model.addAttribute("totalPage",lotGiayRepository.findAll(pageable).getTotalElements());
-        return "/LotGiayForm/trangChu";
+        return "/admin/LotGiayForm/trangChu";
     }
     //detail
     @GetMapping("/detail/{id}")
     public String detail(@PathVariable String id,Model model){
         LotGiay lotGiay = lotGiayService.detail(UUID.fromString(id));
         model.addAttribute("lotGiay",lotGiay);
-        return "/LotGiayForm/update";
+        return "/admin/LotGiayForm/update";
     }
     //delete
     @GetMapping("/delete/{id}")
