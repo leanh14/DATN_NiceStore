@@ -1,8 +1,7 @@
 package com.example.duantn.Service.impl;
 
-import com.example.duantn.Model.ChatLieu;
-import com.example.duantn.Model.KichCo;
-import com.example.duantn.Repository.ChatLieuRepository;
+import com.example.duantn.Model.MauSac;
+import com.example.duantn.Repository.MauSacRepository;
 import com.example.duantn.Service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -10,62 +9,71 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class ChatLieuServiceImpl implements BaseService<ChatLieu> {
+public class MauSacServiceImpl implements BaseService<MauSac> {
+
     @Autowired
-    ChatLieuRepository repo_chatLieu;
-
+    MauSacRepository mauSacRepository;
 
     @Override
-    public List<ChatLieu> layDanhSach() {
-        return repo_chatLieu.getAll();
+    public List<MauSac> layDanhSach() {
+        return mauSacRepository.getAll();
     }
 
     @Override
-    public Page<ChatLieu> layDanhSach(Pageable pageable) {
-        return null;
+    public Page<MauSac> layDanhSach(Pageable pageable) {
+        return mauSacRepository.getAll(pageable);
     }
 
     @Override
-    public Page<ChatLieu> layDanhSach(String textSearch, Pageable pageable) {
-        return null;
+    public Page<MauSac> layDanhSach(String textSearch, Pageable pageable) {
+        if (textSearch != null) {
+//            System.out.println("Chạy vào đây");
+            return mauSacRepository.getAll(textSearch, pageable);
+        }
+
+        return mauSacRepository.getAll(pageable);
     }
 
     @Override
     public void xoa(UUID id) {
-
+        MauSac mauSac = mauSacRepository.findById(id).get();
+        mauSacRepository.delete(mauSac);
     }
 
     @Override
-    public void themMoi(ChatLieu entity) {
-
+    public void themMoi(MauSac entity) {
+        mauSacRepository.save(entity);
     }
 
     @Override
-    public ChatLieu capNhat(ChatLieu entity) {
-        return null;
+    public MauSac capNhat(MauSac entity) {
+        return mauSacRepository.save(entity);
     }
 
     @Override
-    public ChatLieu chiTietTheoId(UUID id) {
-        return null;
+    public MauSac chiTietTheoId(UUID id) {
+        Optional<MauSac> mauSac = mauSacRepository.findById(id);
+        MauSac mauSac1 = mauSac.get();
+        return mauSac1;
     }
 
     @Override
-    public List<ChatLieu> layDanhSachTheoTen(String ten) {
-        return repo_chatLieu.getAllTheoTen(ten);
+    public List<MauSac> layDanhSachTheoTen(String ten) {
+        return mauSacRepository.getAllTheoTen(ten);
     }
 
     public Boolean kiemTraTrungTenKhong(String tenMoi, String tenCu) {
-        List<ChatLieu> dsChatLieu = this.layDanhSach();
+        List<MauSac> dsMauSac = this.layDanhSach();
         Boolean isCheck = false;
         Boolean isCheck2 = true;
 
         // kiem tra xem ten moi co trung voi cac ten khac khong
-        for (ChatLieu chatLieu : dsChatLieu) {
-            if (chatLieu.getTen().equalsIgnoreCase(tenMoi.trim())) {
+        for (MauSac mauSac : dsMauSac) {
+            if (mauSac.getTen().equalsIgnoreCase(tenMoi.trim())) {
                 isCheck = true;
             }
         }
@@ -79,12 +87,12 @@ public class ChatLieuServiceImpl implements BaseService<ChatLieu> {
     }
 
     public Boolean kiemTraTrungTenKhong(String tenCheck) {
-        List<ChatLieu> dsChatLieu = this.layDanhSach();
+        List<MauSac> dsMauSac = this.layDanhSach();
         Boolean isCheck = false;
 
         // kiem tra xem ten moi co trung voi cac ten khac khong
-        for (ChatLieu chatLieu : dsChatLieu) {
-            if (chatLieu.getTen().equalsIgnoreCase(tenCheck.trim())) {
+        for (MauSac mauSac : dsMauSac) {
+            if (mauSac.getTen().equalsIgnoreCase(tenCheck.trim())) {
                 isCheck = true;
                 break;
             }
@@ -93,24 +101,24 @@ public class ChatLieuServiceImpl implements BaseService<ChatLieu> {
     }
 
     public Boolean kiemTraTrungMaKhong(String maCkeck) {
-        List<ChatLieu> dsChatLieu = repo_chatLieu.getAllTheoMa(maCkeck);
+        List<MauSac> dsMauSac = mauSacRepository.getAllTheoMa(maCkeck);
         Boolean isCheck = false;
 
         // kiem tra xem ten moi co trung voi cac ten khac khong
-        if (dsChatLieu.size() > 0) {
+        if (dsMauSac.size() > 0) {
             isCheck = true;
         }
         return isCheck;
     }
 
     public Boolean kiemTraTrungMaKhong(String maMoi, String maCu) {
-        List<ChatLieu> dsChatLieu = this.layDanhSach();
+        List<MauSac> dsMauSac = this.layDanhSach();
         Boolean isCheck = false;
         Boolean isCheck2 = true;
 
         // kiem tra xem ma moi co trung voi cac ma khac khong
-        for (ChatLieu chatLieu : dsChatLieu) {
-            if (chatLieu.getMa().equalsIgnoreCase(maMoi.trim())) {
+        for (MauSac mauSac : dsMauSac) {
+            if (mauSac.getMa().equalsIgnoreCase(maMoi.trim())) {
                 isCheck = true;
                 break;
             }
@@ -123,5 +131,4 @@ public class ChatLieuServiceImpl implements BaseService<ChatLieu> {
 
         return isCheck && isCheck2;
     }
-
 }

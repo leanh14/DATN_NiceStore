@@ -15,55 +15,52 @@ import java.sql.Date;
 public class ChiTietSanPham extends BaseModel{
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdDotKhuyenMai")
+    @JoinColumn(name = "IdDotKhuyenMai",referencedColumnName = "Id")
     private DotKhuyenMai dotKhuyenMai;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdSanPham")
+    @JoinColumn(name = "IdSanPham",referencedColumnName = "Id")
     private SanPham sanPham;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdDanhMuc")
+    @JoinColumn(name = "IdDanhMuc",referencedColumnName = "Id")
     private DanhMuc danhMuc;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdKieuDang")
+    @JoinColumn(name = "IdKieuDang",referencedColumnName = "Id")
     private KieuDang kieuDang;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdThuongHieu")
+    @JoinColumn(name = "IdThuongHieu",referencedColumnName = "Id")
     private ThuongHieu thuongHieu;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdMuiGiay")
+    @JoinColumn(name = "IdMuiGiay",referencedColumnName = "Id")
     private MuiGiay muiGiay;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdDeGiay")
+    @JoinColumn(name = "IdDeGiay",referencedColumnName = "Id")
     private DeGiay deGiay;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdLotGiay")
+    @JoinColumn(name = "IdLotGiay",referencedColumnName = "Id")
     private LotGiay lotGiay;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdDayGiay")
+    @JoinColumn(name = "IdDayGiay",referencedColumnName = "Id")
     private DayGiay dayGiay;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdKichThuoc")
+    @JoinColumn(name = "IdKichThuoc",referencedColumnName = "Id")
     private KichCo kichCo;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdChatLieu")
+    @JoinColumn(name = "IdChatLieu",referencedColumnName = "Id")
     private ChatLieu chatLieu;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "IdMauSac")
+    @JoinColumn(name = "IdMauSac",referencedColumnName = "Id")
     private MauSac mauSac;
-
-    @Column(name = "Ten")
-    private String ten;
 
     @Column(name = "GiaTriSanPham")
     private Double giaTriSanPham;
@@ -87,6 +84,6 @@ public class ChiTietSanPham extends BaseModel{
     private Integer soLuong;
 
     @Column(name = "HinhAnh")
-    private String hinhAnh;
+    private String HinhAnh;
 
 }
