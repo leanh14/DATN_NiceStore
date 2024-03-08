@@ -1,35 +1,36 @@
 package com.example.duantn.Model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-import java.util.UUID;
-
-@Table(name="PhieuGiamGia")
+@Table(name = "PhieuGiamGia")
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Data
-public class PhieuGiamGia {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+public class PhieuGiamGia extends BaseModel{
 
+    @Column(name = "Ma")
     private String ma;
-    private String tenPhieu;
-    private Float giaTriGiam;
-    private String hinhThucGiam;
-    private String dieuKienGiam;
-    private Float  giaTienXetDieuKien;
-    private Date ngayBatDau;
-    private Date ngayKetThuc;
-    private Date ngayTao;
-    private Date ngaySua;
-    private String nguoiTao;
-    private String nguoiSua;
-    private Integer trangThai;
+
+    @Column(name = "TenPhieu")
+    private String ten;
+
+    @Column(name = "GiaTriGiam")
+    private Double giaTriGiam;
+
+    @Column(name = "HinhThucGiam")
+    private String HinhThucGiam;
+
+    @Column(name = "DieuKienGiam")
+    private String DieuKienGiam;
+
+    @Column(name = "GiaTienXetDieuKien")
+    private Double giaTienXetDieuKien;
+
 }

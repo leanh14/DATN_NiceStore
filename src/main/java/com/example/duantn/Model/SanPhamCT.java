@@ -1,41 +1,18 @@
 package com.example.duantn.Model;
 
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.sql.Date;
-import java.util.UUID;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Table(name = "SanPhamCT")
 @Entity
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Data
-public class SanPhamCT {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
-    @ManyToOne
-    @JoinColumn(name = "IdKieuDang")
-    private KieuDang kieuDang;
-    @ManyToOne
-    @JoinColumn(name = "IdLotGiay")
-    private LotGiay lotGiay;
-
-    private String giaTriSanPham;
-    private String giaTriGiam;
-    private Float khoiLuong;
-    private Date ngayHetGiamGia;
-    private String moTa;
-    private Integer soLuong;
-    private String hinhAnh;
-    private Date ngayTao;
-    private Date ngaySua;
-    private String nguoiTao;
-    private String nguoiSua;
-    private Integer trangThai;
+public class SanPhamCT extends BaseModel {
+    @Column(name = "Ma")
+    private String ma;
 }
